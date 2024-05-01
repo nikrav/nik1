@@ -19,7 +19,7 @@ function App() {
   const [notification, setNotification] = useState({ message: "", isVisible: false });
 
   const addEmployee = () => {
-  Axios.post('http://localhost:3001/create/', 
+  Axios.post('https://2mqnw8cswn.ap-south-1.awsapprunner.com/create/', 
     { 
       name: name, 
       email: email,
@@ -34,14 +34,14 @@ function App() {
   };
 
   const getEmployees = () => {
-    Axios.get('http://localhost:3001/employees').then((response) => {
+    Axios.get('https://2mqnw8cswn.ap-south-1.awsapprunner.com/employees').then((response) => {
       // console.log(response);
       setEmployeeList(response.data);
     });
   }
 
   const updateCtc = (id) => {
-    Axios.put('http://localhost:3001/update', {ctc: newCtc, id: id}).then(
+    Axios.put('https://2mqnw8cswn.ap-south-1.awsapprunner.com/update', {ctc: newCtc, id: id}).then(
       (response) => {
         // alert("updated");
         setEmployeeList(employeeList.map((val) => {
@@ -52,7 +52,7 @@ function App() {
   };
 
   const deleteEmployee = (id) => {
-    Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+    Axios.delete(`https://2mqnw8cswn.ap-south-1.awsapprunner.com/delete/${id}`).then((response) => {
       setEmployeeList(employeeList.filter((val) => val.id !== id));
     });
   };  
